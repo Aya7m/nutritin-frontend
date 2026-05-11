@@ -153,14 +153,14 @@ const Dashboard = () => {
       </div>
 
       <div className="bg-white shadow-md rounded-2xl p-5 border">
-  <div className="flex items-center justify-between">
-    <h3 className="text-gray-500">Burned Calories</h3>
-  </div>
+        <div className="flex items-center justify-between">
+          <h3 className="text-gray-500">Burned Calories</h3>
+        </div>
 
-  <p className="text-3xl font-bold text-red-500 mt-4">
-    {totalBurned || 0}
-  </p>
-</div>
+        <p className="text-3xl font-bold text-red-500 mt-4">
+          {totalBurned || 0}
+        </p>
+      </div>
 
       <Water />
       {/* Meals */}

@@ -101,6 +101,34 @@ const useAuthStore = create((set, get) => ({
 
     toast.success("Logged out");
   },
+
+  // ================= UPDATE PROFILE =================
+  updateProfile: async (formData) => {
+    try {
+      set({ loading: true });
+      const token = get().token;
+
+      const res = await axiosInstance.put("/user/update-profile", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+      set({
+        user: res.data,
+        loading: false,
+      });
+
+      toast.success("Profile updated successfully");
+      return true;
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to update profile");
+      set({ loading: false });
+      return false;
+    }
+  },
 }));
 
 export default useAuthStore;

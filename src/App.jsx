@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import { useState } from "react";
 import Favorites from "./pages/Favoriets";
 import MealSettings from "./pages/MealSetting";
+import Loading from "./components/Loading";
 
 const App = () => {
  
@@ -34,8 +35,8 @@ const App = () => {
 
   if (!ready) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading app...
+      <div className="min-h-screen flex items-center justify-center bg-blue-900/20">
+       <Loading/>
       </div>
     );
   }
