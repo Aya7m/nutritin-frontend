@@ -38,7 +38,7 @@ const Sidebar = () => {
       {/* Mobile Sidebar */}
       <div
         className={`
-          fixed top-0 left-0 h-screen w-64
+          fixed top-0 left-0 min-h-screen w-64
           bg-blue-500 dark:bg-slate-900
           text-white z-50
           p-5
@@ -79,7 +79,7 @@ const Sidebar = () => {
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex w-64 h-screen border-r bg-blue-500/70 dark:bg-slate-900 shadow-blue-100 mt-16 text-white p-4">
+      <div className="hidden md:flex w-64 min-h-screen border-r bg-blue-500/70 dark:bg-slate-900 shadow-blue-100 mt-16 text-white p-4">
         <div className="w-full p-5 lg:p-6 flex flex-col gap-3">
           {links.map((link) => (
             <NavLink

@@ -152,7 +152,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-2xl p-5 border">
+      <div className="bg-white shadow-md rounded-2xl p-5 border mt-4">
         <div className="flex items-center justify-between">
           <h3 className="text-gray-500">Burned Calories</h3>
         </div>
