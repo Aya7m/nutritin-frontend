@@ -20,9 +20,7 @@ const useFavoriteStore = create((set) => ({
 
       return res.data;
     } catch (error) {
-      toast.error(
-        error.response?.data?.message || "Something went wrong"
-      );
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   },
 
@@ -40,9 +38,7 @@ const useFavoriteStore = create((set) => ({
     } catch (error) {
       set({ loading: false });
 
-      toast.error(
-        error.response?.data?.message || "Failed to get favorites"
-      );
+      toast.error(error.response?.data?.message || "Failed to get favorites");
     }
   },
 
@@ -50,9 +46,7 @@ const useFavoriteStore = create((set) => ({
   isFavorite: (mealId) => {
     const favorites = useFavoriteStore.getState().favorites;
 
-    return favorites.some(
-      (fav) => fav.mealId?._id === mealId
-    );
+    return favorites.some((fav) => fav.mealId?._id === mealId);
   },
 }));
 

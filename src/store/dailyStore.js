@@ -63,35 +63,28 @@ const useDailyStore = create((set) => ({
   },
 
   // ================= Meals =================
-  getMeals: async (
-    page = 1,
-    limit = 6
-  ) => {
-    try {
-      set({ loading: true });
+ 
+ getMeals: async (page = 1, limit = 6, search = "") => {
+  try {
+    set({ loading: true });
 
-      const res = await axiosInstance.get(
-        `/meal?page=${page}&limit=${limit}`
-      );
+    const res = await axiosInstance.get(
+      `/meal?page=${page}&limit=${limit}&search=${search}`
+    );
 
-      set({
-        meals: res.data.meals,
-        totalMeals: res.data.total,
-        pages: res.data.pages,
-        loading: false,
-      });
+    set({
+      meals: res.data.meals,
+      totalMeals: res.data.total,
+      pages: res.data.pages,
+      loading: false,
+    });
 
-      return res.data;
-    } catch (error) {
-      set({ loading: false });
-
-      toast.error(
-        error.response?.data?.message ||
-          "Failed"
-      );
-    }
-  },
-
+    return res.data;
+  } catch (error) {
+    set({ loading: false });
+    toast.error(error.response?.data?.message || "Failed");
+  }
+},
 
   // ================= Add Meal =================
   addMealToDay: async (mealId, quantity) => {
